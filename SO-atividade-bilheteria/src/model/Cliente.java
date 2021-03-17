@@ -5,7 +5,7 @@ import controller.CompraController;
 public class Cliente extends Thread{
 
     private int id;
-    private double quantidadeIngresso;
+    private double quantidadeIngressos;
     private double tempoLogin;
     private double tempoCompra;
     private boolean isLogged;
@@ -13,13 +13,13 @@ public class Cliente extends Thread{
 
     public void run() {
     	try {
-    		sleep((long) CompraController.fazerLogin());
+    		sleep((long) tempoLogin);
     	} catch (InterruptedException ex) {
     		ex.printStackTrace();	
     	}
     	
     	try {
-    		sleep((long) CompraController.fazerCompra());
+    		sleep((long) tempoCompra);
     	} catch (InterruptedException ex) {
     		ex.printStackTrace();
     	}
@@ -32,11 +32,11 @@ public class Cliente extends Thread{
     public void setIdCliente(int id) {
         this.id = id;
     }
-    public double getQtdIngressos() {
-        return quantidadeIngresso;
+    public double getQuantidadeIngressos() {
+        return quantidadeIngressos;
     }
-    public void setQtdIngressos(double quantidadeIngresso) {
-        this.quantidadeIngresso = quantidadeIngresso;
+    public void setQuantidadeIngressos(double quantidadeIngressos) {
+        this.quantidadeIngressos = quantidadeIngressos;
     }
     public double getTempoLogin() {
         return tempoLogin;

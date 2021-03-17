@@ -4,8 +4,7 @@ import model.Cliente;
 
 public class CompraController {
 	
-	public static double fazerLogin() {
-		Cliente cliente = new Cliente();
+	public static void fazerLogin(Cliente cliente) {
 		cliente.setTempoLogin(Math.random() * (2 - 0.5) + 0.5);
 		
 		if (cliente.getTempoLogin() > 1) {
@@ -14,12 +13,9 @@ public class CompraController {
 		}
 		
 		cliente.setLogged(true);
-		return cliente.getTempoLogin();
 	}
 	
-	public static double fazerCompra() {
-		Cliente cliente = new Cliente();
-		
+	public static void fazerCompra(Cliente cliente) {	
 		if (cliente.isLogged() == false) {
 			System.out.println("Voce nao pode fazer o login, logo nao podera fazer a compra.");
 			cliente.setComprou(false);
@@ -32,8 +28,8 @@ public class CompraController {
 			cliente.setComprou(false);
 		}
 		
+		cliente.setQuantidadeIngressos(Math.random() * (4 - 1) + 1);
 		cliente.setComprou(true);
-		return cliente.getTempoCompra();	
 	}
 	
 	
